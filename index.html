@@ -1,0 +1,495 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff0f5">
+<title>For Madam Jii 🎀</title>
+
+<style>
+:root {
+  --pink: #d65386;
+  --dark-pink: #a93c6a;
+  --light-pink: #fff0f5;
+  --cream: #fffaf7;
+  --text: #684253;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: linear-gradient(150deg, #fff5f8, #ffe4ee, #fff9f4);
+  color: var(--text);
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+button { font: inherit; }
+
+section {
+  padding: 65px 18px;
+  position: relative;
+}
+
+h1, h2, h3 { color: var(--dark-pink); }
+
+h1 {
+  font-size: clamp(2.5rem, 9vw, 4.5rem);
+  margin: 12px 0;
+  line-height: 1.12;
+}
+
+h2 { font-size: clamp(1.65rem, 5vw, 2.35rem); }
+
+p {
+  line-height: 1.85;
+  font-size: 1rem;
+}
+
+.small {
+  font-size: .87rem;
+  opacity: .8;
+}
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 45px 20px;
+}
+
+.hero-content {
+  max-width: 700px;
+  animation: appear 1s ease both;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 9px 15px;
+  background: white;
+  border: 1px solid #f7cada;
+  border-radius: 30px;
+  color: var(--dark-pink);
+}
+
+.big-heart {
+  font-size: 4.3rem;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.card {
+  width: 100%;
+  max-width: 700px;
+  margin: 22px auto;
+  padding: clamp(23px, 5vw, 40px);
+  border: 1px solid white;
+  border-radius: 28px;
+  background: rgba(255,255,255,.77);
+  box-shadow: 0 12px 38px rgba(168, 66, 105, .09);
+}
+
+button {
+  border: none;
+  border-radius: 30px;
+  padding: 14px 21px;
+  margin: 6px;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+  font-weight: bold;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 20px #bc52732b;
+}
+
+button:focus-visible {
+  outline: 3px solid #9d3a66;
+  outline-offset: 3px;
+}
+
+.primary {
+  color: white;
+  background: linear-gradient(135deg, #e873a0, #c94e80);
+}
+
+.secondary {
+  color: var(--dark-pink);
+  background: white;
+  border: 1px solid #f0bfd0;
+}
+
+.hero-button { margin-top: 20px; }
+
+.scroll-note {
+  margin-top: 35px;
+  font-size: .82rem;
+  opacity: .65;
+}
+
+.gallery {
+  max-width: 900px;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.photo {
+  background: white;
+  padding: 9px 9px 18px;
+  border-radius: 7px;
+  box-shadow: 0 6px 20px #a83f6419;
+  transform: rotate(-1.3deg);
+  transition: transform .25s;
+}
+
+.photo:nth-child(even) { transform: rotate(1.5deg); }
+
+.photo:hover { transform: rotate(0) scale(1.025); }
+
+.photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 4px;
+  background: #ffe8f0;
+}
+
+.caption {
+  margin: 12px 3px 0;
+  font-size: .88rem;
+  line-height: 1.5;
+}
+
+.photo-number {
+  display: block;
+  margin-top: 5px;
+  color: #bd7791;
+  font-size: .72rem;
+}
+
+#reply {
+  min-height: 100px;
+  margin-top: 23px;
+  padding: 18px;
+  border-radius: 18px;
+  background: #fff2f7;
+  line-height: 1.8;
+}
+
+#reply:empty { display: none; }
+
+.choice-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.final-heart { font-size: 3rem; }
+
+footer {
+  padding: 30px 18px 45px;
+  font-size: .86rem;
+}
+
+.floating-heart {
+  position: fixed;
+  bottom: -35px;
+  left: 0;
+  z-index: 10;
+  pointer-events: none;
+  animation: float-up 7s linear forwards;
+}
+
+@keyframes heartbeat {
+  50% { transform: scale(1.12); }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float-up {
+  to {
+    transform: translateY(-115vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+@media (min-width: 650px) {
+  .gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- OPENING -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="big-heart">💗</div>
+    <span class="eyebrow">A little letter for someone special 🎀</span>
+
+    <h1>Madam Jii</h1>
+
+    <p>
+      My favourite bestie, I have something to tell you.
+      Will you give me a tiny moment? 🥺
+    </p>
+
+    <button class="primary hero-button"
+      onclick="document.getElementById('apology').scrollIntoView({behavior:'smooth'})">
+      Open your little letter 💌
+    </button>
+
+    <div class="scroll-note">Made especially for you, with care ♡</div>
+  </div>
+</section>
+
+<!-- PERSONAL APOLOGY -->
+<section id="apology">
+  <div class="card">
+    <div style="font-size:2.7rem">🥺🌷</div>
+    <h2>I'm really sorry, Madam Jii</h2>
+
+    <p style="text-align:left">
+      Hey, Madam Jii. 💗
+      <br><br>
+      I want to say something from my heart. I'm really sorry for
+      getting angry at you, ignoring you, and talking to you rudely.
+      You didn't deserve to be treated that way by me.
+      <br><br>
+      I know that being angry doesn't give me the right to hurt
+      your feelings. Instead of handling things properly, I let my
+      anger affect the way I treated you, and I regret that.
+      <br><br>
+      You're not just an ordinary person to me. You're my best friend,
+      and our friendship genuinely matters to me. I don't want my
+      behaviour to make you feel that you don't matter, because you do.
+      <br><br>
+      I'm not saying sorry just to make everything normal again.
+      I'm saying it because I realise that I was wrong, and I want
+      to do better. You deserve respect, kindness, and someone who
+      listens to you, even when things aren't going perfectly.
+      <br><br>
+      If you're hurt or angry with me, I understand. You don't have
+      to pretend that you're okay or forgive me immediately.
+      I'll respect your feelings and give you space if you need it.
+      <br><br>
+      I just hope that, whenever you're ready, we can talk about
+      everything calmly. I'll try to be more careful with my words
+      and actions instead of letting my anger speak for me.
+      <br><br>
+      <strong>
+        I'm genuinely sorry, Madam Jii. Thank you for being my best
+        friend. Our friendship means a lot to me. 🩷
+      </strong>
+    </p>
+
+    <div style="font-size:2rem">🧸💗🌸</div>
+  </div>
+</section>
+
+<!-- EIGHT PERSONAL PHOTOS -->
+<section id="memories">
+  <h2>Our little memory corner 📸</h2>
+  <p>Eight pictures, lots of memories, and one friendship I value. ♡</p>
+
+  <div class="gallery">
+
+    <div class="photo">
+      <img src="photos/photo1.jpg" alt="Memory one with Madam Jii"
+        loading="lazy">
+      <p class="caption">A little memory to keep 💗</p>
+      <span class="photo-number">MEMORY 01</span>
+    </div>
+
+    <div class="photo">
+      <img src="photos/photo2.jpg" alt="Memory two with Madam Jii"
+        loading="lazy">
+      <p class="caption">One for the scrapbook 🌷</p>
+      <span class="photo-number">MEMORY 02</span>
+    </div>
+
+    <div class="photo">
+      <img src="photos/photo3.jpg" alt="Memory three with Madam Jii"
+        loading="lazy">
+      <p class="caption">A moment worth remembering 🎀</p>
+      <span class="photo-number">MEMORY 03</span>
+    </div>
+
+    <div class="photo">
+      <img src="photos/photo4.jpg" alt="Memory four with Madam Jii"
+        loading="lazy">
+      <p class="caption">A little piece of happiness ✨</p>
+      <span class="photo-number">MEMORY 04</span>
+    </div>
+
+    <div class="photo">
+      <img src="photos/photo5.jpg" alt="Memory five with Madam Jii"
+        loading="lazy">
+      <p class="caption">This one deserves a place here 🌸</p>
+      <span class="photo-number">MEMORY 05</span>
+    </div>
+
+    <div class="photo">
+      <img src="photos/photo6.jpg" alt="Memory six with Madam Jii"
+        loading="lazy">
+      <p class="caption">A memory close to my heart 🫶</p>
+      <span class="photo-number">MEMORY 06</span>
+    </div>
+
+    <div class="photo">
+      <img src="photos/photo7.jpg" alt="Memory seven with Madam Jii"
+        loading="lazy">
+      <p class="caption">Some moments are special 💌</p>
+      <span class="photo-number">MEMORY 07</span>
+    </div>
+
+    <div class="photo">
+      <img src="photos/photo8.jpg" alt="Memory eight with Madam Jii"
+        loading="lazy">
+      <p class="caption">One more little memory ♡</p>
+      <span class="photo-number">MEMORY 08</span>
+    </div>
+
+  </div>
+
+  <p class="small">
+    Replace these eight sample photo files with your own pictures.
+  </p>
+</section>
+
+<!-- INTERACTIVE QUESTIONS -->
+<section id="feelings">
+  <div class="card">
+    <div style="font-size:2.5rem">👉👈💗</div>
+    <h2>Can I ask you something?</h2>
+
+    <p id="question">Madam Jii, are you angry with me? 🥺</p>
+
+    <div class="choice-buttons">
+      <button class="primary" onclick="answer('angry')">
+        Yes, I'm angry 😤
+      </button>
+
+      <button class="secondary" onclick="answer('not-angry')">
+        No, I'm not 💗
+      </button>
+    </div>
+
+    <div class="choice-buttons" style="margin-top:8px">
+      <button class="secondary" onclick="answer('hurt')">
+        I'm still hurt 🥺
+      </button>
+
+      <button class="secondary" onclick="answer('talk')">
+        Let's talk 🫶
+      </button>
+    </div>
+
+    <div id="reply" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- FINAL MESSAGE -->
+<section>
+  <div class="card">
+    <div class="final-heart">💌</div>
+    <h2>One last thing, Madam Jii...</h2>
+
+    <p>
+      I can't change what happened, but I can take responsibility
+      for it and try to treat you better.
+      <br><br>
+      You don't owe me an instant reply, and you don't have to
+      forgive me before you're ready.
+      <br><br>
+      Whenever you feel comfortable, I'd like to listen to you
+      and make things right.
+      <br><br>
+      <strong>
+        I'm sorry for hurting you. Thank you for being my best friend. 💗
+      </strong>
+    </p>
+
+    <p style="color:#bd527e">
+      With a sincere apology and lots of care,
+      <br>
+      Your best friend ♡
+    </p>
+  </div>
+</section>
+
+<footer>
+  A little pink page, made especially for Madam Jii 🎀
+  <br>Friendship deserves kindness, even on difficult days. ♡
+</footer>
+
+<script>
+function answer(choice) {
+  const reply = document.getElementById("reply");
+
+  const messages = {
+    "angry":
+      "It's okay, Madam Jii. 🥺 I understand why you might be angry. I won't argue with your feelings or pressure you to forgive me. When you're ready, I'll listen. 💗",
+
+    "not-angry":
+      "That makes me feel relieved, Madam Jii. 🥹💗 Still, I know I was wrong, and I don't want to repeat the way I treated you. Thank you for hearing me out. ♡",
+
+    "hurt":
+      "I'm sorry that I hurt you. 💔 You don't have to hide how you feel just to make me comfortable. I'll respect your feelings, and I'm ready to listen whenever you want to talk. 🌷",
+
+    "talk":
+      "I'd really like that, Madam Jii. 🫶 Let's talk calmly, and I'll listen to your side too. I want to understand how you felt and do better. 💗"
+  };
+
+  reply.textContent = messages[choice] || "";
+}
+
+// Decorative floating hearts; they do not track or send responses.
+function createHeart() {
+  const heart = document.createElement("span");
+  heart.className = "floating-heart";
+  heart.textContent = ["♡", "💗", "💕", "🌸", "🎀"][
+    Math.floor(Math.random() * 5)
+  ];
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (14 + Math.random() * 16) + "px";
+  heart.style.animationDuration = (6 + Math.random() * 4) + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(function() {
+    heart.remove();
+  }, 10500);
+}
+
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  setInterval(createHeart, 1000);
+}
+</script>
+
+</body>
+</html>
